@@ -1,7 +1,7 @@
 version: '3'
 services:
   shogo_laravel_back:
-    container_name: 'back'
+    container_name: 'shogo_laravel_back'
     build:
       context: '.docker/'
       args:
@@ -11,7 +11,7 @@ services:
       - './project/:/var/www/project'
 
   shogo_laravel_nginx:
-    container_name: 'nginx'
+    container_name: 'shogo_laravel_nginx'
     image: nginx
     ports:
       - "88:80"
@@ -20,7 +20,7 @@ services:
       - './project/:/var/www/project'
 
   shogo_laravel_mysql:
-    container_name: 'mysql'
+    container_name: 'shogo_laravel_mysql'
     image: mysql:5.7
     ports:
       - "13306:3306"
@@ -30,8 +30,8 @@ services:
         MYSQL_PASSWORD: ${DB_PASSWORD:-12345678}
         MYSQL_USER: ${DB_USERNAME:-laravel}
     volumes:
-      - mysqldb:/var/lib/mysql
+      - shogo_mysqldb:/var/lib/mysql
 
 volumes:
-  mysqldb:
+  shogo_mysqldb:
     driver: local
