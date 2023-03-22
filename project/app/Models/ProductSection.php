@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class ProductSection extends Model
 {
     public $timestamps = false;
-    protected $table = 'product';
+    protected $table = 'product_section';
     use HasFactory;
 }
