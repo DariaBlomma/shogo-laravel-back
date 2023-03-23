@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Api\ProductController;
 use \App\Http\Controllers\Api\ProductSectionController;
+use \App\Http\Controllers\Api\ProductTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResources([
     'products' => ProductController::class,
     'product-sections' => ProductSectionController::class,
+    'product-types' => ProductTypeController::class,
 ]);
