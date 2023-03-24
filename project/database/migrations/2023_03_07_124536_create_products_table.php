@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProductsTable extends Migration
 {
+    private $table_name = 'product';
     /**
      * Run the migrations.
      *
@@ -13,7 +14,7 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create( $this->table_name, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
             $table->integer('position')->default(0);
@@ -29,8 +30,8 @@ class CreateProductsTable extends Migration
             $table->unique('url');
             $table->index('currency_id');
         });
-        DB::statement('ALTER TABLE product MODIFY COLUMN position INTEGER (11);');
-        DB::statement('ALTER TABLE product MODIFY COLUMN visible INTEGER (1);');
+        DB::statement("ALTER TABLE  $this->table_name MODIFY COLUMN position INTEGER (11);");
+        DB::statement("ALTER TABLE  $this->table_name MODIFY COLUMN visible INTEGER (1);");
     }
 
     /**
